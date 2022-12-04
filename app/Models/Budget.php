@@ -11,7 +11,7 @@ class Budget extends Model
     protected $table = 'budget';
 
 
-    public function scopeInsertExpense($q, $input)
+    public function scopeInsertBudget($q, $input)
     {
         $this->insert([
             "name" => $input["name"],
@@ -21,7 +21,7 @@ class Budget extends Model
         ]);
     }
 
-    public function scopeUpdateExpense($q, $input)
+    public function scopeUpdateBudget($q, $input)
     {
         $this->where("id", $input["id"])->update([
             "name" => $input["name"],
@@ -30,7 +30,7 @@ class Budget extends Model
         ]);
     }
 
-    public function scopeDeleteExpense($q, $id)
+    public function scopeDeleteBudget($q, $id)
     {
         $this->where("id", $id)->delete();
     }

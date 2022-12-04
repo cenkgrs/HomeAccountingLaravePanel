@@ -16,19 +16,19 @@ class BudgetsController extends Controller
             $input = $request->all();
 
             if ($input["method"] == "insert") {
-                Budget::insertExpense($input);
+                Budget::insertBudget($input);
     
                 $message = "Bütçe girdisi eklendi";
             }
     
             if ($input["method"] == "update") {
-                Budget::updateExpense($input);
+                Budget::updateBudget($input);
     
                 $message = "Bütçe girdisi güncellendi";
             }
     
             if ($input["method"] == "delete") {
-                Budget::deleteExpense($input["id"]);
+                Budget::deleteBudget($input["id"]);
     
                 $message = "Bütçe girdisi silindi";
             }

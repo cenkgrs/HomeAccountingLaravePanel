@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
+
+class ExpensesController extends Controller
+{
+    public function index(Request $requets)
+    {
+        if ($requets-isMethod('post')) {
+            $input = $requets->all();
+
+            if ($input["method"] == "insert") {
+                Expenses::insertExpense($input);
+            }
+
+            if ($input["method"] == "update") {
+                Expenses::updateExpense($input);
+            }
+
+            if ($input["method"] == "delete") {
+                Expenses::deleteExpense($input);
+            }
+        }
+
+        $data["expenses"] = Expenses::paginate(20);
+
+        $data["columns"] = Schema::getColumnListing('budget');
+
+        return view("expenses.index", $data);
+    }
+}
