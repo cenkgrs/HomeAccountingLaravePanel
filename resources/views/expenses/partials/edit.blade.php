@@ -19,8 +19,8 @@
                             <input name="name" type="text" id="expense" class="form-control">
                         </div>
                         <div class="col-md-4 col-xs-12">
-                            <label for="amount">Tutar</label>
-                            <input name="amount" type="text" id="budget_amount" class="form-control">
+                            <label for="price">Tutar</label>
+                            <input name="price" type="text" id="price" class="form-control">
                         </div>
                         <div class="col-md-3 col-xs-12 mt2">
                             <button type="submit" class="btn btn-primary btn-block pull-right">Güncelle</button>
