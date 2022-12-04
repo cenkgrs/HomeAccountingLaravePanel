@@ -29,6 +29,10 @@ class ExpensesController extends Controller
 
         $data["columns"] = Schema::getColumnListing('budget');
 
+        if (isset($message)) {
+            return redirect()->route('expenses')->with('success_message', $message);
+        }
+
         return view("expenses.index", $data);
     }
 }
