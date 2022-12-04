@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div id="category-page">
+<div id="budgets-page">
 
     @include('budgets.partials.insert')
 
