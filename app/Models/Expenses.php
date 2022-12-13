@@ -24,9 +24,9 @@ class Expenses extends Model
         return $this->belongsTo(Budget::class);
     }
 
-    public function scopeGetExpense($id)
+    public function scopeGetExpense($q, $id)
     {
-        $this->where('id', $id)->first();
+        return $this->where('id', $id)->first();
     }
 
     public function scopeInsertExpense($q, $input)
@@ -52,7 +52,7 @@ class Expenses extends Model
             "expense"       => $input["expense"],
             "price"         => $input["price"],
             "expense_date"  => new DateTime($input["expense_date"]),
-            "created_at"    => new DateTime
+            "updated_at"    => new DateTime
         ]);
     }
 

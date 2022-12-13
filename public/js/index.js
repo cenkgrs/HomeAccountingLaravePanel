@@ -99,8 +99,6 @@ var index =  function index (){
 
                 that.getSelectedExpense = function (event) {
 
-                    alert("a");
-
                     init(event)
 
                     function init(event) {
@@ -116,10 +114,15 @@ var index =  function index (){
 
                     function beforeRequest(){}
 
-                    function afterRequest(response) {
+                    function afterRequest(data, response) {
                         var expense = response.expense;
 
-                        console.log(expense);
+                        $("#expense_id").val(expense.id);
+                        $("#expense").val(expense.expense);
+                        $("#budget_id option[value='"+ expense.budget_id +"']").prop("selected", true);
+                        $("#category_id option[value='"+ expense.category_id +"']").prop("selected", true);
+                        $("#price").val(expense.price);
+                        $("#expense_date").val(expense.expense_date);
                     }
                  
                 }

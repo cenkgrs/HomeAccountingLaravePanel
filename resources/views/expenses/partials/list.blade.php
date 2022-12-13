@@ -30,7 +30,7 @@
                                 <td>{{ humanizedDate($expense->created_at) }}</td>
                                 <td>{{ humanizedDate($expense->updated_at) }}</td>
                                 <td>
-                                    <button type="button" data-expense="{{ $expense }}" class="btn btn-secondary edit-button" data-toggle="modal" data-target="#editModal">
+                                    <button type="button" data-expense="{{ $expense }}" data-id="{{ $expense->id }}" class="btn btn-secondary edit-button" data-toggle="modal" data-target="#editModal">
                                         <i class="fas fa-edit"></i>
                                     </button>
                                     <button type="submit" name="delete" class="btn btn-danger" text="Sil"><i class="fas fa-trash-alt"></i></button> 

@@ -51,8 +51,10 @@ class ExpensesController extends Controller
 
     public function getExpense(Request $requets)
     {
-        $expense = Expenses::getExpense($id);
+        $input = $requets->all();
 
-        return Response::json(["expense" => $expense]);
+        $expense = Expenses::getExpense($input["id"]);
+
+        return response()->json(["expense" => $expense]);
     }
 }
