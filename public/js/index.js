@@ -50,8 +50,6 @@ var index =  function index (){
 
                 that.getSelectedCategory = function (event) {
 
-                    alert("a");
-
                     init(event)
 
                     function init(event) {
@@ -74,8 +72,6 @@ var index =  function index (){
         }
 
         that.initExpenses = function () {
-
-            alert("initted");
 
             var Events = new Events();
 

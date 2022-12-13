@@ -13,6 +13,8 @@ class Expenses extends Model
 {
     protected $table = 'expenses';
 
+    public $timestamps = true;
+
     // Relationships
     public function category()
     {
@@ -46,14 +48,13 @@ class Expenses extends Model
     {
         $expense = $this->find($input["id"]);
 
-        $this->where("id", $input["id"])->update([
-            "budget_id"     => $input["budget_id"],
-            "category_id"   => $input["category_id"],
-            "expense"       => $input["expense"],
-            "price"         => $input["price"],
-            "expense_date"  => new DateTime($input["expense_date"]),
-            "updated_at"    => new DateTime
-        ]);
+        $expense->budget_id = $input["budget_id"];
+        $expense->category_id = $input["category_id"];
+        $expense->expense = $input["expense"];
+        $expense->price = $input["price"];
+        $expense->expense_date = new DateTime($input["expense_date"]);
+        $expense->save();
+        $expense->touch();
     }
 
     public function scopeDeleteExpense($q, $input)
