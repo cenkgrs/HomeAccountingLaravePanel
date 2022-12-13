@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\BudgetsController;
+use App\Http\Controllers\ExpensesController;
 
 
 /*

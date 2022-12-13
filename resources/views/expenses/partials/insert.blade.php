@@ -13,6 +13,15 @@
                             <label for="expense">Harcama</label>
                             <input name="expense" type="text" class="form-control">
                         </div>
+
+                        <div class="col-md-2 col-xs-12">
+                            <label for="category">Kategori</label>
+                            <select name="category" id="" class="form-control">
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="col-md-2 col-xs-12">
                             <label for="pricd">Tutar</label>
                             <input name="pricd" type="text" class="form-control">

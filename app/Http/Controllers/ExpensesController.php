@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 
+use App\Models\Categories;
+use App\Models\Expenses;
+
 class ExpensesController extends Controller
 {
     public function index(Request $requets)
     {
-        if ($requets-isMethod('post')) {
+        if ($requets->isMethod('post')) {
             $input = $requets->all();
 
             if ($input["method"] == "insert") {
@@ -26,6 +29,8 @@ class ExpensesController extends Controller
         }
 
         $data["expenses"] = Expenses::paginate(20);
+
+        $data["categories"] = Categories::all(["id", "name"]);
 
         $data["columns"] = Schema::getColumnListing('budget');
 
