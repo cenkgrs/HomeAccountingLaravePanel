@@ -48,4 +48,11 @@ class ExpensesController extends Controller
 
         return view("expenses.index", $data);
     }
+
+    public function getExpense(Request $requets)
+    {
+        $expense = Expenses::getExpense($id);
+
+        return Response::json(["expense" => $expense]);
+    }
 }

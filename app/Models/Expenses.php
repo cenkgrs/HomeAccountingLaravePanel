@@ -24,28 +24,35 @@ class Expenses extends Model
         return $this->belongsTo(Budget::class);
     }
 
+    public function scopeGetExpense($id)
+    {
+        $this->where('id', $id)->first();
+    }
+
     public function scopeInsertExpense($q, $input)
     {
         $this->insert([
-            "budget_id" => $input["budget_id"],
-            "category_id" => $input["category_id"],
-            "expense" => $input["expense"],
-            "price" => $input["price"],
-            "expense_date" => new DateTime($input["expense_date"]),
-            "created_at" => new DateTime,
-            "updated_at" => new DateTime
+            "budget_id"     => $input["budget_id"],
+            "category_id"   => $input["category_id"],
+            "expense"       => $input["expense"],
+            "price"         => $input["price"],
+            "expense_date"  => new DateTime($input["expense_date"]),
+            "created_at"    => new DateTime,
+            "updated_at"    => new DateTime
         ]);
     }
 
     public function scopeUpdateExpense($q, $input)
     {
+        $expense = $this->find($input["id"]);
+
         $this->where("id", $input["id"])->update([
-            "budget_id" => $input["budget_id"],
-            "category_id" => $input["category_id"],
-            "expense" => $input["expense"],
-            "price" => $input["price"],
-            "expense_date" => new DateTime($input["expense_date"]),
-            "created_at" => new DateTime
+            "budget_id"     => $input["budget_id"],
+            "category_id"   => $input["category_id"],
+            "expense"       => $input["expense"],
+            "price"         => $input["price"],
+            "expense_date"  => new DateTime($input["expense_date"]),
+            "created_at"    => new DateTime
         ]);
     }
 

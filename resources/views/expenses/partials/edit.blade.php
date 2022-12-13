@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('budgets') }}" method="POST">
+                <form action="{{ route('expenses') }}" method="POST">
                     {{ csrf_field() }}
                     <input type="hidden" name="method" value="update">
                     <input type="hidden" name="id" id="expense_id" value="">
@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="col-md-4 col-xs-12 mb-3">
                             <label for="name">Harcama</label>
-                            <input name="name" type="text" id="expense" class="form-control">
+                            <input name="expense" type="text" id="expense" class="form-control">
                         </div>
 
                         <div class="col-md-4 col-xs-12">

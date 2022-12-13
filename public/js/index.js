@@ -14,6 +14,8 @@ var index =  function index (){
                 case "/categories":
                     Pages.initCategories()
 
+                case "/expenses":
+                    Pages.initExpenses()
             }
 
         });
@@ -71,6 +73,59 @@ var index =  function index (){
             }
         }
 
+        that.initExpenses = function () {
+
+            alert("initted");
+
+            var Events = new Events();
+
+            init()
+
+            function init()
+            {
+                if ($("#expenses-page").length == -1) {
+                    return;
+                }
+
+                $(document).ready(function () {
+                    //$(document).on(".edit-button", "click", function(event) { Events.getSelectedExpense(event) });
+                    $(".edit-button").on("click", function(event) { Events.getSelectedExpense(event) });
+                })
+            }
+
+            function Events() {
+
+                var that = this;
+
+                that.getSelectedExpense = function (event) {
+
+                    alert("a");
+
+                    init(event)
+
+                    function init(event) {
+
+                        var id = $(event.target).data("id");
+
+                        var data = {
+                            "id" : id
+                        }
+
+                        Server.getSelectedExpense(data, beforeRequest, afterRequest);
+                    }
+
+                    function beforeRequest(){}
+
+                    function afterRequest(response) {
+                        var expense = response.expense;
+
+                        console.log(expense);
+                    }
+                 
+                }
+            }
+        } 
+
     }
 
     function Server() {
@@ -81,6 +136,13 @@ var index =  function index (){
             beforeRequest(data)
 
             makeRequest("post", "/get-category", data, afterRequest);
+        }
+
+        that.getSelectedExpense = function(data, beforeRequest, afterRequest) {
+
+            beforeRequest(data)
+
+            makeRequest("post", "/get-expense", data, afterRequest);
         }
 
         function makeRequest(type, url, data, afterRequest) {

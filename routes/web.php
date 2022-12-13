@@ -32,6 +32,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::match(['GET', 'POST'], '/budgets', [BudgetsController::class, 'index'])->name('budgets');
     Route::match(['GET', 'POST'], '/expenses', [ExpensesController::class, 'index'])->name('expenses');
 
+    Route::post('/get-expense', [ExpensesController::class, 'getExpense'])->name('getExpense');
+
+
 });
 
 
