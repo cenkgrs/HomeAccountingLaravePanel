@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 
+use App\Models\Budget;
 use App\Models\Categories;
 use App\Models\Expenses;
 
@@ -17,22 +18,29 @@ class ExpensesController extends Controller
 
             if ($input["method"] == "insert") {
                 Expenses::insertExpense($input);
+
+                $message = "Harcama eklendi";
             }
 
             if ($input["method"] == "update") {
                 Expenses::updateExpense($input);
+
+                $message = "Harcama güncellendi";
             }
 
             if ($input["method"] == "delete") {
                 Expenses::deleteExpense($input);
+
+                $message = "Harcama silindi";
             }
         }
 
-        $data["expenses"] = Expenses::paginate(20);
-
-        $data["categories"] = Categories::all(["id", "name"]);
-
-        $data["columns"] = Schema::getColumnListing('budget');
+        $data = [
+            "expenses" => Expenses::paginate(20),
+            "budgets" => Budget::all(["id", "name"]),
+            "categories" => Categories::all(["id", "name"]),
+            "columns" => Schema::getColumnListing('expenses'),
+        ];
 
         if (isset($message)) {
             return redirect()->route('expenses')->with('success_message', $message);

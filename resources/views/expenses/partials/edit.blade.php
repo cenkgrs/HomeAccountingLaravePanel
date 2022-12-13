@@ -14,15 +14,39 @@
                     <input type="hidden" name="id" id="expense_id" value="">
                     
                     <div class="row">
-                        <div class="col-md-4 col-xs-12">
+                        <div class="col-md-4 col-xs-12 mb-3">
                             <label for="name">Harcama</label>
                             <input name="name" type="text" id="expense" class="form-control">
                         </div>
+
+                        <div class="col-md-4 col-xs-12">
+                            <label for="budget">Bütçe</label>
+                            <select name="budget_id" id="budget_id" class="form-control">
+                                @foreach ($budgets as $budget)
+                                    <option value="{{ $budget->id }}">{{ $budget->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col-md-4 col-xs-12">
+                            <label for="category">Kategori</label>
+                            <select name="category_id" id="" class="form-control">
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="col-md-4 col-xs-12">
                             <label for="price">Tutar</label>
-                            <input name="price" type="text" id="price" class="form-control">
+                            <input name="price" type="text" class="form-control" id="price">
                         </div>
-                        <div class="col-md-3 col-xs-12 mt2">
+
+                        <div class="col-md-4 col-xs-12">
+                            <label for="expense_date">İşlem Tarihi</label>
+                            <input type="date" name="expense_date" id="expense_date" class="form-control">
+                        </div>
+                       
+                        <div class="col-md-4 col-xs-12 mt2">
                             <button type="submit" class="btn btn-primary btn-block pull-right">Güncelle</button>
                         </div>
                     </div>
@@ -30,7 +54,6 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
-                <button type="button" class="btn btn-primary">Kaydet</button>
             </div>
         </div>
     </div>

@@ -21,10 +21,12 @@
                             <input type="hidden" name="id" value="{{ $expense->id }}">
                             <tr>
                                 <td>{{ $expense->id }}</td>
-                                <td>{{ $expense->expense }}</td>
                                 <td>{{ $expense->budget->name }}</td>
                                 <td>{{ $expense->category->name }}</td>
+
+                                <td>{{ $expense->expense }}</td>
                                 <td>{{ $expense->price }}</td>
+                                <td>{{ humanizedDate($expense->expense_date) }}</td>
                                 <td>{{ humanizedDate($expense->created_at) }}</td>
                                 <td>{{ humanizedDate($expense->updated_at) }}</td>
                                 <td>

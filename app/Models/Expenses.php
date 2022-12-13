@@ -4,9 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Budget;
+use App\Models\Categories;
+
+use DateTime;
+
 class Expenses extends Model
 {
     protected $table = 'expenses';
+
+    // Relationships
+    public function category()
+    {
+        return $this->belongsTo(Categories::class);
+    }
+
+    public function budget()
+    {
+        return $this->belongsTo(Budget::class);
+    }
 
     public function scopeInsertExpense($q, $input)
     {
@@ -15,6 +31,7 @@ class Expenses extends Model
             "category_id" => $input["category_id"],
             "expense" => $input["expense"],
             "price" => $input["price"],
+            "expense_date" => new DateTime($input["expense_date"]),
             "created_at" => new DateTime,
             "updated_at" => new DateTime
         ]);
@@ -27,12 +44,13 @@ class Expenses extends Model
             "category_id" => $input["category_id"],
             "expense" => $input["expense"],
             "price" => $input["price"],
+            "expense_date" => new DateTime($input["expense_date"]),
             "created_at" => new DateTime
         ]);
     }
 
-    public function scopeDeleteExpense($q, $id)
+    public function scopeDeleteExpense($q, $input)
     {
-        $this->where("id", $id)->delete();
+        $this->where("id", $input["id"])->delete();
     }
 }
