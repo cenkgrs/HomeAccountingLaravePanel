@@ -29,8 +29,8 @@
                         </div>
 
                         <div class="col-md-4 col-xs-12">
-                            <label for="category">Kategori</label>
-                            <select name="category_id" id="" class="form-control">
+                            <label for="category_id">Kategori</label>
+                            <select name="category_id" id="category_id" class="form-control">
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach

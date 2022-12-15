@@ -101,6 +101,10 @@ var index =  function index (){
 
                         var id = $(event.target).data("id");
 
+                        if (!id) {
+                            id = $(event.target.parentElement).data("id");
+                        }
+
                         var data = {
                             "id" : id
                         }
