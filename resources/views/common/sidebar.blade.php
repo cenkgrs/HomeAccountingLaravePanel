@@ -8,23 +8,23 @@
             <ul class="sidebar-list">
 
                 <li>
-                    <a href="{{ route('dashboard') }}"><i class="fab fa-product-hunt"></i> Dashboard</a>
+                    <a href="{{ route('dashboard') }}">Dashboard</a>
                 </li>
 
                 <li>
-                    <a href="{{ route('categories') }}"><i class="fas fa-money-bill-wave"></i> Kategoriler</a>
+                    <a href="{{ route('categories') }}">Kategoriler</a>
                 </li>
 
                 <li>
-                    <a href="{{ route('budgets') }}"><i class="fas fa-money-bill-wave"></i> Budgets</a>
+                    <a href="{{ route('budgets') }}">Bütçeler</a>
                 </li>
 
                 <li>
-                    <a href="{{ route('expenses') }}"><i class="fas fa-money-bill-wave"></i> Expenses</a>
+                    <a href="{{ route('expenses') }}">Harcamalar</a>
                 </li>
                 
                 <li>
-                    <a href="{{ route('logout') }}"> Logout</a>
+                    <a href="{{ route('logout') }}">Çıkış Yap</a>
                 </li>
 
             </ul>

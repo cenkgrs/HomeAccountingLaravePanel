@@ -1,5 +1,5 @@
 
-<h2 class="mt-5 mb-5">Harcamalar</h2>
+<h2 class="mt-5 mb-4">Harcamalar</h2>
 
 <div class="row">
     <div class="col-lg-12 col-xs-12 ">

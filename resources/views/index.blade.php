@@ -9,7 +9,7 @@
                 @include('common.sidebar')
             </div>
             <div class="col-lg-9">
-                <div class="right-screen mt-2">
+                <div class="right-screen mt-5">
                     @include('partials.messages')
                     
                     @yield('content')
