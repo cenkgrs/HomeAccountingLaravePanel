@@ -7,7 +7,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\BudgetsController;
 use App\Http\Controllers\ExpensesController;
-
+use App\Http\Controllers\CardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::match(['GET', 'POST'], '/categories', [CategoriesController::class, 'index'])->name('categories');
     Route::match(['GET', 'POST'], '/budgets', [BudgetsController::class, 'index'])->name('budgets');
     Route::match(['GET', 'POST'], '/expenses', [ExpensesController::class, 'index'])->name('expenses');
+    Route::match(['GET', 'POST'], '/cards', [CardController::class, 'index'])->name('cards');
 
     Route::post('/get-expense', [ExpensesController::class, 'getExpense'])->name('getExpense');
 

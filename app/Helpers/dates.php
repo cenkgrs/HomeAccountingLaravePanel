@@ -11,3 +11,14 @@ function humanizedDate($date)
 
     return $date;
 }
+
+function cardType($type) {
+
+    $types = [
+        "credit_card" => "Kredi Kartı",
+        "salary_card" => "Maaş Kartı",
+        "virtual_card" => "Sanal Kart",
+    ];
+
+    return $types[$type];
+}
